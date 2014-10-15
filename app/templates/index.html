@@ -1,0 +1,9 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <a href="{{ url_for('cadastro') }}">Cadastro</a>
+    <a href="{{ url_for('lista') }}">Lista</a>
+    <a href="{{ url_for('emprestimo') }}">Cadastro Emprestimo</a>
+    <a href="{{ url_for('lista_emprestimo') }}">Lista Emprestimo</a>
+{% endblock %}

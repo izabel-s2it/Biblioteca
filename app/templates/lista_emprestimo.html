@@ -1,0 +1,27 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Lista</h3>
+      {% if loan %}
+          <table border="1">
+              <tr>
+                  <td>Título</td>
+                  <td>Data Emprestimo</td>
+                  <td>Data Devolução</td>
+                  <td>Alterar</td>
+              </tr>
+              {% for loans in loan %}
+                  <tr>
+                      <td>{{loans.book_id}}</td>
+                      <td>{{loans.data_emprestimo}}</td>
+                      <td>{{loans.data_devolucao}}</td>
+                      <td><a href="{{url_for('edita', id=loans.id)}}">Link</a></td>
+                  </tr>
+              {% endfor %}
+
+          </table>
+      {% else %}
+          <h4>Não há livros</h4>
+      {% endif %}
+{% endblock %}

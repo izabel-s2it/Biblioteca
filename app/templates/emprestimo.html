@@ -1,0 +1,64 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="static/css/jquery-ui.css" />
+    <script src="static/js/jquery-1.8.2.js"></script>
+    <script src="static/js/jquery-ui.js"></script>
+
+    <script>
+    $(function() {
+        $( "#data_emprestimo" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+        $( "#data_devolucao" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+    </script>
+
+{% endblock%}
+{% block content %}
+  <h3>Cadastro</h3>
+  <form action="" method="post" name="cadastro" id="cadastro">
+
+      <div>
+          <div class="row-fluid">
+                <div class="span5">
+                    <select id="titulos" name="titulos">
+                            <option value=" ">Selecione</option>
+                        {% for books in book %}
+                            <option value="{{ books.id }}">{{ books.titulo }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label>Data Emprestimo<abbr title="Campo obrigatório" class="text-red">*</abbr></label>
+                    {{ form.data_emprestimo }}
+
+                    <span class="help-inline">
+                    {% if form.data_emprestimo.errors %}
+                        {% for error in form.data_emprestimo.errors %}
+                            {{ error|escape }} <br />
+                        {% endfor %}
+                    {% endif %}
+                    </span>
+
+                    <label>Data Devolução<abbr title="Campo obrigatório" class="text-red">*</abbr></label>
+                    {{ form.data_devolucao }}
+
+                    <span class="help-inline">
+                    {% if form.data_devolucao.errors %}
+                        {% for error in form.data_devolucao.errors %}
+                            {{ error|escape }} <br />
+                        {% endfor %}
+                    {% endif %}
+                    </span>
+
+
+                    <input type="submit" value="Save" id="b" name="b">
+                </div>
+		</div>
+      </div>
+  </form>
+{% endblock %}

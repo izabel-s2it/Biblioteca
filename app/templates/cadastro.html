@@ -1,0 +1,103 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Cadastro</h3>
+  <form action="" method="post" name="cadastro" id="cadastro">
+      {{form.hidden_tag()}}
+      <div>
+          <div class="row-fluid">
+                <div class="span5">
+                    <label>Título<abbr title="Campo obrigatório" class="text-red">*</abbr></label>
+                    {{ form.titulo }}
+
+                    <span class="help-inline">
+                    {% if form.titulo.errors %}
+                        {% for error in form.titulo.errors %}
+                            {{ error|escape }} <br />
+                        {% endfor %}
+                    {% endif %}
+                    </span>
+
+                    <label>Autor<abbr title="Campo obrigatório" class="text-red">*</abbr></label>
+                    {{ form.autor }}
+
+                    <span class="help-inline">
+                    {% if form.autor.errors %}
+                        {% for error in form.autor.errors %}
+                            {{ error|escape }} <br />
+                        {% endfor %}
+                    {% endif %}
+                    </span>
+
+                    <label>Editora<abbr title="Campo obrigatório" class="text-red">*</abbr></label>
+                    {{ form.editora }}
+
+                    <span class="help-inline">
+                    {% if form.editora.errors %}
+                        {% for error in form.editora.errors %}
+                            {{ error|escape }} <br />
+                        {% endfor %}
+                    {% endif %}
+                    </span>
+
+                    <label>Categoria<abbr title="Campo obrigatório" class="text-red">*</abbr></label>
+                    {{ form.categoria }}
+
+                    <span class="help-inline">
+                    {% if form.categoria.errors %}
+                        {% for error in form.categoria.errors %}
+                            {{ error|escape }} <br />
+                        {% endfor %}
+                    {% endif %}
+                    </span>
+
+                    <label>Tipo<abbr title="Campo obrigatório" class="text-red">*</abbr></label>
+                    {{ form.tipo }}
+
+                    <span class="help-inline">
+                    {% if form.tipo.errors %}
+                        {% for error in form.tipo.errors %}
+                            {{ error|escape }} <br />
+                        {% endfor %}
+                    {% endif %}
+                    </span>
+
+                    <label>Disponível<abbr title="Campo obrigatório" class="text-red">*</abbr></label>
+                    {{ form.status }}
+
+                    <span class="help-inline">
+                    {% if form.status.errors %}
+                        {% for error in form.status.errors %}
+                            {{ error|escape }} <br />
+                        {% endfor %}
+                    {% endif %}
+                    </span>
+
+                    <label>Quantidade<abbr title="Campo obrigatório" class="text-red">*</abbr></label>
+                    {{ form.quantidade }}
+
+                    <span class="help-inline">
+                    {% if form.quantidade.errors %}
+                        {% for error in form.quantidade.errors %}
+                            {{ error|escape }} <br />
+                        {% endfor %}
+                    {% endif %}
+                    </span>
+
+                    <label>Sinopse<abbr title="Campo obrigatório" class="text-red">*</abbr></label>
+                    {{ form.descricao }}
+
+                    <span class="help-inline">
+                    {% if form.descricao.errors %}
+                        {% for error in form.descricao.errors %}
+                            {{ error|escape }} <br />
+                        {% endfor %}
+                    {% endif %}
+                    </span>
+                    <input type="submit" value="Save" id="b" name="b">
+                </div>
+		</div>
+      </div>
+  </form>
+{% endblock %}

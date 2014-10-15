@@ -1,0 +1,49 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Lista</h3>
+      {% if book %}
+          <table border="1">
+              <tr>
+                  <td>Título</td>
+                  <td>Autor</td>
+                  <td>Editora</td>
+                  <td>Categoria</td>
+                  <td>Tipo</td>
+                  <td>Disponível</td>
+                  <td>Quantidade</td>
+                  <td>Descrição</td>
+                  <td>Alterar</td>
+              </tr>
+              {% for books in book %}
+                  <tr>
+                      <td>{{books.titulo}}</td>
+                      <td>{{books.autor}}</td>
+                      <td>{{books.editora}}</td>
+                      <td>{{books.categoria}}</td>
+
+                      {% if books.tipo == 'manga' %}
+                          <td>Mangá</td>
+                      {% elif books.tipo == 'hq' %}
+                          <td>HQ</td>
+                      {% elif books.tipo == 'livro' %}
+                          <td>Livro</td>
+                      {% endif %}
+
+                      {% if books.status == 'sim' %}
+                          <td>Sim</td>
+                      {% else %}
+                          <td>Não</td>
+                      {% endif %}
+                      <td>{{books.quantidade}}</td>
+                      <td>{{books.descricao}}</td>
+                      <td><a href="{{url_for('edita', id=books.id)}}">Link</a></td>
+                  </tr>
+              {% endfor %}
+
+          </table>
+      {% else %}
+          <h4>Não há livros</h4>
+      {% endif %}
+{% endblock %}
